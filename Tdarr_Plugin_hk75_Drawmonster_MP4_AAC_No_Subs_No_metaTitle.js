@@ -53,9 +53,6 @@ function plugin(file) {
      var jsonString = JSON.stringify(file)
 
 
-     console.log("file.meta.Title:"+file.meta.Title)
-
-
      ///
 
      if((file.meta.Title != "undefined") && !jsonString.includes("aac") && jsonString.includes("subrip")){
