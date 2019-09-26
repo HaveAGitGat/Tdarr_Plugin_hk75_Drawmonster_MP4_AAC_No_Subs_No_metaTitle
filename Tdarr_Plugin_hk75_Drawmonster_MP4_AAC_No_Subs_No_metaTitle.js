@@ -103,7 +103,7 @@ function plugin(file) {
      if(!jsonString.includes("aac")){
 
       response.infoLog += " File has no aac track"
-      response.preset = ',-map 0:v -map 0:a:0 -map 0:a -map 0:s? -map 0:d? -c copy -c:a:0 aac'
+      response.preset = ',-map 0:v -map 0:a:0 -map 0:a -map 0:s? -map 0:d? -c copy -c:a:0 aac -ac 2 '
       response.reQueueAfter = true;
       response.processFile = true;
       return response
