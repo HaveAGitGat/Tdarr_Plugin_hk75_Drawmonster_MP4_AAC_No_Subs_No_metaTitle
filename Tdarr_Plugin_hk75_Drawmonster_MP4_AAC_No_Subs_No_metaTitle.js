@@ -53,6 +53,9 @@ function plugin(file) {
      var jsonString = JSON.stringify(file)
 
 
+   
+
+
      ///
 
      if((file.meta.Title != "undefined") && !jsonString.includes("aac") && jsonString.includes("subrip")){
@@ -67,7 +70,7 @@ function plugin(file) {
      if(!jsonString.includes("aac") && jsonString.includes("subrip")){
 
       response.infoLog += "File has no aac track and has subs"
-      response.preset = '-sn,-map 0:v -c:v copy -map 0:a -c:a copy -map 0:a -strict -2 -c:a aac'
+      response.preset = '-sn,-map 0:v -map 0:a:0 -map 0:a -map 0:s? -map 0:d? -c copy -c:a:0 aac'
       response.reQueueAfter = true;
       response.processFile = true;
       return response
@@ -100,7 +103,7 @@ function plugin(file) {
      if(!jsonString.includes("aac")){
 
       response.infoLog += " File has no aac track"
-      response.preset = ',-map 0:v -c:v copy -map 0:a -c:a copy -map 0:a -strict -2 -c:a aac'
+      response.preset = ',-map 0:v -map 0:a:0 -map 0:a -map 0:s? -map 0:d? -c copy -c:a:0 aac'
       response.reQueueAfter = true;
       response.processFile = true;
       return response
